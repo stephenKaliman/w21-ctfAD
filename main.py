@@ -123,9 +123,13 @@ def handle():
     if(not checklogin(name, pswd)):
         flash("incorrect username or password")
         return redirect('/')
+
     uid = query_db("select uid from users where name=? and password=?",(name,pswd))
     flash(f"logged in as {name}")
-    return redirect(f'/profile/{uid}')
+    res = make_response(redirect(f'/profile/{name}'))
+    uid = str.encode(str(uid)[2:-3])
+    res.set_cookie('user ID', uid)
+    return res
 
 
 #@app.route('/posts', methods=['POST'])
@@ -135,9 +139,30 @@ def handle():
 #        redis.set(uuid, sanitize(data).encode())
 #        return redirect(f'/post/{uuid}')
 
-@app.route('/profile/<uid>')
-def profilepage(uid):
-    return render_template("index.html")
+#@app.route('/profile/<uid>')
+#def profilepage(uid):
+#    return render_template("index.html")
+
+@app.route('/profile/<name>')
+def profile(name):
+    nam = name
+    comp = query_db("select name from users where name=? or uid=?", (name, name))
+    story = query_db("select bio from users where name=?", (name))
+    if story is None: story = None
+    else: story = str(story)[2:-3]
+    #if(nam == comp):
+    return render_template("profile.html", name=nam, bio=story)
+
+@app.route('/view', methods=['POST'])
+def goOn():
+    uid = (request.cookies.get('user ID'))
+    return redirect(f"/view/{uid}")
+
+@app.route('/view/<uid>')
+def seenotes(uid):
+    nam, story, note = query_db("select name,bio,notes from users where uid=?",(uid,))
+    nam=str(nam)[2:-3]
+    return render_template("profile.html", name=nam, bio=story, notes=note)
 
 #@app.route('/post/<uuid>')
 #def level1(uuid):

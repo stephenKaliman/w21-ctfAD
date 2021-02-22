@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+{% block body %}
+
+<html lang = "en">
+	<title>{% block title %}{% endblock %} </title>
+
+	<head>
+		<link rel="stylesheet" href="/static/styles.css">
+	</head>
+	<section>
+	<div class="container">
+  <div class="hello-kitty"></div>
+  <div class="eye-container">
+    <div class="eye left-eye"></div>
+    <div class="eye right-eye"></div>
+  </div>
+  <div class="nose"></div>
+  <div class="whisker w1"></div>
+  <div class="whisker w2"></div>
+  <div class="whisker w3"></div>
+  <div class="whisker w4"></div>
+  <div class="whisker w5"></div>
+  <div class="whisker w6"></div>
+  <div class="ear left-ear"></div>
+  <div class="ear right-ear"></div>
+  <div class="bow bow-center"></div>
+  <div class="bow bow-left"></div>
+  <div class="bow bow-right"></div>
+  <div class="bow bow-detail-left"></div>
+  <div class="bow bow-detail-right"></div>
+  <div class="ear-detail ear-detail-left"></div>
+  <div class="ear-detail ear-detail-right"></div>
+  <div class="ear-line"></div>
+</div>
+	</section>
+	<div class="container2">
+<h2 class="text"> HELLO!</h2>
+<h3 class="text">WELCOME TO</h3>
+<h1 class="text"><b>{{name}}'s profile!</b> </h3>
+<p class="text2"></p><br>
+<table class="center">
+	<tr>
+		<td> Name: </td>
+		<td> {{name}} </td>
+	</tr>
+	<tr>
+		<td> Bio: </td>
+		<td> {{bio}} </td>
+	</tr>
+	<tr>
+		<td> Private Notes: </td>
+		{% if notes %}
+		{{notes}}
+		{% else %}
+		<td> <form action="/view" method="POST"><input type="submit" value = "Reveal"></form></td>
+		{% endif %}
+	</tr>
+</table>
+<p text-align="center"> (bio truncates at 50 characters, notes truncate at 100 characters) </p>
+	<form action="/edit" method="POST">
+		<input type="submit" value="Edit Info">
+	</form>
+	
+	{% endblock %}
