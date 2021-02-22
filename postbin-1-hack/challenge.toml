@@ -2,10 +2,10 @@ slug = "postbin-1"
 title = "Postbin 1"
 author = "defund"
 value = 30
-description = """No tricks up my sleeve, just a standard cross-site scripting attack!
+description = """What's up everyone? I'm just an intern here, learning how to prevent XSS attacks! My filters here are unbreakable, I'm pretty sure I covered anything that could trigger any scripts to run
 
 The admin has a cookie containing the flag on this [postbin](http://postbin1.acmcyber.com:10000). Report links you want the admin to visit [here](http://acmcyber.com:10001)."""
 tags = ["xss"]
 files = []
-flag = "flag{mmm_vanilla_xss}"
+flag = "flag{uNbReAkAbLe_tHeY_sAiD_B-0}"
 enabled = true

@@ -2,10 +2,10 @@ slug = "postbin-2"
 title = "Postbin 2"
 author = "defund"
 value = 40
-description = """Everything seems to be rendered as raw text :(
+description = """Okay, fine, you got me last time. But there's no way anything is getting past *THESE* filters-- no more cheap tricks here. 
 
 The admin has a cookie containing the flag on this [postbin](http://postbin2.acmcyber.com:10000). Report links you want the admin to visit [here](http://acmcyber.com:10001)."""
 tags = ["xss"]
 files = []
-flag = "flag{escape_the_textarea}"
+flag = "flag{class_fil_by_XSS_pass_ter_ic}"
 enabled = true
