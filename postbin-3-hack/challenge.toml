@@ -1,0 +1,11 @@
+slug = "postbin-3"
+title = "Postbin 3"
+author = "defund"
+value = 50
+description = """Can't execute JavaScript without script tags, right?
+
+The admin has a cookie containing the flag on this [postbin](http://postbin3.acmcyber.com:10000). Report links you want the admin to visit [here](http://acmcyber.com:10001)."""
+tags = ["xss"]
+files = []
+flag = "flag{which_event_handler_did_you_use}"
+enabled = true

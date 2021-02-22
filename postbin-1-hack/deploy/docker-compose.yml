@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  redis:
+    image: redis
+  level1:
+    build: .
+    ports:
+      - "7001:3000"
+    environment:
+      - XSS_LEVEL=1
+  level2:
+    build: .
+    ports:
+      - "7002:3000"
+    environment:
+      - XSS_LEVEL=2
+  level3:
+    build: .
+    ports:
+      - "7003:3000"
+    environment:
+      - XSS_LEVEL=3
+  level4:
+    build: .
+    ports:
+      - "7004:3000"
+    environment:
+      - XSS_LEVEL=4

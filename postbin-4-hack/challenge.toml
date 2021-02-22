@@ -1,0 +1,11 @@
+slug = "postbin-4"
+title = "Postbin 4"
+author = "defund"
+value = 60
+description = """In Google we trust. Hint: Look at the headers.
+
+The admin has a cookie containing the flag on this [postbin](http://postbin4.acmcyber.com:10000). Report links you want the admin to visit [here](http://acmcyber.com:10001)."""
+tags = ["xss", "csp"]
+files = []
+flag = "flag{callbacks_to_the_rescue}"
+enabled = true
