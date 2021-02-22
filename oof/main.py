@@ -46,7 +46,7 @@ def makeuser(name, uid, pswd):
     uuid = str(uid)
     nam = str(name)
     query = f'select * from users where name=?'
-    user = query_db(query, (nam))
+    user = query_db(query, (nam,))
     if user is None:
         g.db.execute("INSERT INTO users (uid, name, password) VALUES (?,?,?)", params)
         g.db.commit()
