@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% extends "layout.html" %}
+{% block body %}
 <html lang = "en">
 	<head>
 		<link rel="stylesheet" href="/static/styles.css">
@@ -34,14 +36,29 @@
 <h3 class="text">WELCOME TO</h3>
 <h1 class="text"><b>HELLO KITTY ISLAND ADVENTURE</b> </h3>
 <p class="text2">(actual gameplay coming soon; in the meantime, make an account!)</p><br>
-<br>
 <table class="center">
-<form>
-	<tr><td><label for="name">Name:    </label></td><td><input type="text" id="name" name="name"></td></tr>
-	<td><label for="pass">Password:</label></td><td><input type="password" id="pass" name="pass"></td></tr>
+
+	<form action="/signup" method="POST">
+		<tr><td><label for="name">Name:    </label></td><td><input type="text" id="name" name="name"></td></tr>
+		<td><label for="pass">Password:</label></td><td><input type="password" id="pass" name="pass"></td></tr>
 </table>
-<button> Log In </button><br>
-<p class="text2">Don't have an account yet?<br>
-<button> Sign Up </button>
-</form>
+		<input type="submit" value="Sign Up">
+	</form>
+	<br>
+	<br>
+	{% if error %}
+	<b>Error:</b>{{error}}
+	{% endif %}
+	<br>
+	<br>
+	<p class="text2">Already have an account? Log in!<br>
+<table class="center">
+	<form action="/login" method="POST">
+		<tr><td><label for="name">Name:    </label></td><td><input type="text" id="name" name="name"></td></tr>
+		<td><label for="pass">Password:</label></td><td><input type="password" id="pass" name="pass"></td></tr>
+</table>
+		<input type="submit" value="Login">
+	</form>
 	</div>
+
+	{% endblock %}
